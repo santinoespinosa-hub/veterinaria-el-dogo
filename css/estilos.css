@@ -1,0 +1,540 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #202020;
+    --gris: #757575;
+    --gris-claro: #cccccc;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+}
+
+html {
+    font-size: 67.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--oscuro);
+    background-image: linear-gradient(to top, var(--gris-claro) 0%, var(--blanco) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+header {
+  background-color: var(--secundario);
+}
+
+h1 {
+  color: var(--primario);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: var(--secundario);
+}
+
+/* Estilo del menú de navegación */
+.menu {
+    background-color: var(--oscuro);
+    color: var(--blanco);
+}
+
+.menu-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .menu-flex {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+}
+
+.menu ul li {
+    margin: 2px;
+    padding: 2px;
+    border: 1px solid var(--gris-claro);
+}
+
+.menu ul li a {
+    display: block;
+    width: 100px;
+    padding: 4px 0;
+    text-decoration: none;
+    color: var(--blanco);
+    text-align: center;
+    font-size: 11px;
+    border-left: 10px solid var(--gris-claro);
+}
+
+.menu ul li a:hover {
+    color: var(--primario);
+    background-color: var(--secundario);
+    border-left-color: var(--primario);
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* --- Sección principal con altura dinámica y flexible --- */
+.principal {
+    background-image: url(../imagenes/banner-mascotas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; /* Asegura que la imagen de fondo quede bien encuadrada */
+    position: relative;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;             /* Le pasamos el control de la altura al contenedor interno */
+}
+
+.contenido-principal {
+    background-color: rgba(7, 7, 7, 0.699);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    padding: 6rem 2rem;       /* SOLUCIÓN: Da un espacio limpio y amplio arriba y abajo */
+}
+
+/* Centrado estético del icono y texto del Banner */
+.principal-icono {
+    display: flex;
+    flex-direction: column;    /* Coloca el icono arriba y el texto abajo */
+    align-items: center;       /* Centra el icono y el bloque de texto horizontalmente */
+    text-align: center;        /* Centra todas las líneas de texto */
+    gap: 2rem;                 /* Espacio limpio entre icono y título */
+    max-width: 80rem;          /* Ancho cómodo de lectura */
+    margin: 0 auto;            /* Centra el bloque completo */
+}
+
+/* Controla el tamaño del icono para que no se deforme */
+.principal-icono img {
+    width: 80px;               /* Tamaño del camioncito */
+    height: 80px;
+    display: block;
+}
+
+.banner-texto h3 {
+    color: var(--primario);    /* Color amarillo/dorado destacado para el título */
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.banner-texto p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.45);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Servicios */
+@media(min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+    }
+}
+
+/* --- Diseño Estético y Centrado para las Tarjetas --- */
+.servicio {
+    display: flex;
+    flex-direction: column;    /* Ordena los bloques principales hacia abajo */
+    align-items: center;       /* Centra horizontalmente el icono y el bloque de texto */
+    text-align: center;        /* Centra los textos decorativos y títulos */
+    padding: 3rem 2rem;
+    background-color: var(--blanco);
+    border-radius: 1rem;
+    height: 100%;              /* Asegura que la tarjeta use todo el alto disponible */
+}
+
+.servicio-icono {
+    margin-bottom: 2rem;       /* Deja un espacio limpio debajo del círculo amarillo */
+}
+
+.servicio-contenido {
+    display: flex;
+    flex-direction: column;    /* Ordena Título -> Texto -> Botón hacia abajo */
+    align-items: center;       /* Centra el título y el botón horizontalmente */
+    flex-grow: 1;              /* ESTO ES CLAVE: Hace que el contenedor ocupe todo el alto */
+    width: 100%;
+}
+
+.servicio-contenido h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;     /* Separa el título azul del texto inferior */
+}
+
+.servicio-contenido p, 
+.servicio-contenido dl {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;     
+    width: 100%;
+}
+
+/* --- SOLUCIÓN PARA LA LISTA DE "DÓNDE ESTAMOS" --- */
+.servicio-contenido ul {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    padding: 0;
+    list-style-type: disc;        /* Muestra los puntitos tradicionales */
+    text-align: left;             /* Alinea el texto a la izquierda para que queden uno debajo de otro */
+    display: inline-block;        /* Permite que el bloque se comporte como un elemento centrado */
+    width: auto;                  /* No ocupa todo el ancho, se ajusta al texto */
+    max-width: 90%;
+}
+
+/* Estilo estético para la lista de "Nuestros valores" */
+.servicio-contenido dt {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.servicio-contenido dd {
+    margin: 0 0 1rem 0;
+}
+
+/* --- SOLUCIÓN PARA SIMETRÍA DE BOTONES --- */
+.servicio-contenido .boton {
+    margin-top: auto;          /* EFECTO IMÁN: Empuja el botón al fondo de la tarjeta al mismo nivel */
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    width: auto;               
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;       /* Separa un poco más las tarjetas de forma limpia */
+        align-items: stretch;   /* Fuerza a todas las tarjetas del contenedor a medir lo mismo */
+    }
+}
+.servicio-icono {
+    width: 15rem;
+    height: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.servicio-icono img {
+    width: 75%;
+}
+
+/* Carrito de compras */
+.carrito {
+    background-color: var(--oscuro);
+    color: var(--blanco);
+}
+
+.carrito table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.carrito th, .carrito td {
+    padding: 12px;
+    border: 1px solid var(--gris);
+    text-align: left;
+}
+
+.carrito table thead {
+    background-color: var(--primario);
+    color: var(--oscuro);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.carrito table input {
+    width: 50%;
+}
+
+/*-- MODO MOVIL --*/
+@media screen and (max-width: 600px) {
+    .carrito table, thead, tbody, tfoot, th, td, tr {
+        display: block;
+    }
+
+    .carrito thead tr {
+        display: none;
+    }
+
+    .carrito tr {
+        margin-bottom: 20px;
+        border: 2px solid var(--secundario);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .carrito td {
+        border: none;
+        position: relative;
+        padding-left: 50% !important;
+        text-align: right;
+        border-bottom: 1px solid var(--gris-claro);
+    }
+
+    .carrito td::before {
+        content: attr(data-label);
+        position:absolute;
+        left: 10px;
+        width: 40%;
+        font-weight: bold;
+        text-align: left;
+        color: var(--gris-claro);
+    }
+
+    .carrito tfoot tr {
+        border: none;
+        background: var(--gris);
+        color: var(--oscuro);
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .carrito tfoot td:first-child {
+        display: none;
+    }
+}
+
+footer {
+    text-align: center;
+}
+
+/* --- ADMIN & DIALOG STYLES --- */
+.titulo-admin-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.boton-admin {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.boton-admin:hover {
+    background-color: #00c3ff;
+}
+
+/* Admin controls in product card */
+.admin-opciones {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+.boton-card-editar, .boton-card-eliminar {
+    flex: 1;
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.2s ease;
+}
+.boton-card-editar {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+.boton-card-eliminar {
+    background-color: #f44336;
+    color: var(--blanco);
+}
+.boton-card-editar:hover, .boton-card-eliminar:hover {
+    opacity: 0.9;
+}
+
+/* Dialog Styles */
+dialog {
+    border: none;
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    width: min(500px, 95vw);
+    background: var(--blanco);
+}
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+.formulario-modal {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.formulario-modal h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.4rem;
+    border-bottom: 2px solid var(--secundario);
+    padding-bottom: 1rem;
+    color: var(--secundario);
+}
+.campo-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.campo-modal label {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--oscuro);
+    text-align: left;
+}
+.campo-modal input {
+    padding: 1rem;
+    border: 1px solid var(--gris);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+.campo-modal input:focus {
+    outline: none;
+    border-color: var(--secundario);
+    box-shadow: 0 0 5px rgba(0, 151, 167, 0.4);
+}
+.campo-modal input:disabled {
+    background-color: #e9ecef;
+    color: #495057;
+    cursor: not-allowed;
+}
+.especificaciones-grupo {
+    border: 1px solid var(--gris);
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+.especificaciones-grupo legend {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secundario);
+    padding: 0 0.5rem;
+    text-transform: uppercase;
+}
+.form-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.boton-dialogo {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.boton-dialogo:hover {
+    opacity: 0.9;
+}
+.boton-dialogo.guardar {
+    background-color: var(--secundario);
+    color: var(--blanco);
+}
+.boton-dialogo.cancelar {
+    background-color: var(--gris);
+    color: var(--blanco);
+}
+@media (min-width: 768px) {
+    .servicios {
+        align-items: stretch; /* Fuerza a todas las tarjetas a tener la misma altura */
+    }
+}
+@media (min-width: 768px) {
+    #lista-productos.servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Divide en 3 columnas iguales */
+        gap: 3rem;                             /* Deja una separación limpia entre tarjetas */
+        max-width: 1200px;                     /* Limita el ancho total del catálogo */
+        margin: 0 auto 4rem auto;              /* Centra todo el bloque en la pantalla */
+        width: 100%;
+    }
+}
+.admin-opciones {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;       /* Ocupa todo el ancho de la tarjeta */
+    gap: 1.5rem;       /* Separa el botón amarillo del rojo */
+    margin-top: 1.5rem;
+}
+
+.boton-card-editar, 
+.boton-card-eliminar {
+    flex: 1;           /* Hace que ambos botones midan exactamente lo mismo */
+    padding: 1rem;
+    font-size: 1.4rem;
+}

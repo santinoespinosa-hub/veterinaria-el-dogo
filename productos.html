@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Dogo</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>El Dogo</h1>
+    </header>
+    <nav class="menu">
+        <div class="contenedor">
+            <ul class="menu-flex">
+                <li><a href="./">Inicio</a></li>
+                <li><a href="./nosotros.html">Nosotros</a></li>
+                <li><a href="./productos.html">Productos</a></li>
+                <li><a href="./contactenos.html">Contáctenos</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="contenedor sombra">
+        <div class="titulo-admin-flex">
+            <h2>Listado de productos</h2>
+            <button id="btn-nuevo-producto" class="boton-admin">
+                Cargar nuevo producto
+            </button>
+        </div>
+        <section class="servicios" id="lista-productos">
+           
+        </section>   
+        
+        <!-- Carrito de compras -->
+         <section class="carrito">
+            <h3>Carrito de compras</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Importe</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-tabla">
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td>Total</td>
+                        <td>$ <span id="total"></span>.-</td>
+                    </tr>
+                </tfoot>
+            </table>
+         </section>
+    </main>
+
+    <!-- Dialogo modal para cargar / modificar productos -->
+     <dialog id="dialogo-producto">
+        <form id="form-producto" class="formulario-modal">
+            <!-- Campo oculto para saber si editamos o creamos -->
+            <input type="hidden" id="modo-edicion" value="false">
+            
+            <h3 id="dialogo-titulo">Cargar Producto</h3>
+
+            <div class="campo-modal">
+                <label for="prod-codigo">Código:</label>
+                <input type="number" id="prod-codigo" name="codigo" required>
+            </div>
+            <div class="campo-modal">
+                <label for="prod-nombre">Nombre:</label>
+                <input type="text" id="prod-nombre" name="nombre" required>
+            </div>
+            <div class="campo-modal">
+                <label for="prod-categoria">Categoría:</label>
+                <input type="text" id="prod-categoria" name="categoria" required>
+            </div>
+            <div class="campo-modal">
+                <label for="prod-precio">Precio ($):</label>
+                <input type="number" id="prod-precio" name="precio" required>
+            </div>
+            <div class="campo-modal">
+                <label for="prod-imagen">Imagen (ej.: royal-canin.jpg):</label>
+                <input type="text" id="prod-imagen" name="imagen" required>
+            </div>
+            
+            <fieldset class="especificaciones-grupo">
+                <legend>Detalles del Artículo</legend>
+
+                <div class="campo-modal">
+                    <label for="prod-marca">Marca:</label>
+                    <input type="text" id="prod-marca" required>
+                </div>
+
+                <div class="campo-modal">
+                    <label for="prod-presentacion">Presentación (Ej: Bolsa 15kg / 250ml):</label>
+                    <input type="text" id="prod-presentacion" required>
+                </div>
+
+                <div class="campo-modal">
+                    <label for="prod-tipo-contenido">Tipo de contenido / Sabor:</label>
+                    <input type="text" id="prod-tipo-contenido" required>
+                </div>
+
+                <div class="campo-modal">
+                    <label for="prod-especificacion">Especificación / Destinado a:</label>
+                    <input type="text" id="prod-especificacion" required>
+                </div>
+            </fieldset>
+
+            <div class="form-botones">
+                <button type="submit" class="boton-dialogo guardar">Guardar</button>
+                <button type="button" id="btn-cancelar" class="boton-dialogo cancelar">Cancelar</button>
+            </div>
+        </form>
+     </dialog>
+
+    <footer>
+        <p>El Dogo - Todos los derechos reservados - 2026</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./controladores/lista-productos.js"></script>
+    <script src="./controladores/carrito-compras.js"></script>
+</body>
+</html>

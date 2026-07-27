@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Dogo</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>El Dogo</h1>
+    </header>
+    <nav class="menu">
+        <div class="contenedor">
+            <ul class="menu-flex">
+                <li><a href="./">Inicio</a></li>
+                <li><a href="./nosotros.html">Nosotros</a></li>
+                <li><a href="./productos.html">Productos</a></li>
+                <li><a href="./contáctenos.html">Contáctenos</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <h2>Contáctenos</h2>
+            <form action="mailto:info@eldogoveterinaria.com" method="post">
+                <fieldset>
+                    <legend>Por favor, complete los campos</legend>
+                    <table>
+                        <tr>
+                            <td><label for="nombre">* Nombre:</label></td>
+                            <td>
+                                <input 
+                                type="text"
+                                placeholder="Nombre y apellido"
+                                name="nombre"
+                                id="nombre"
+                                required
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="direccion">Dirección:</label></td>
+                            <td>
+                                <input 
+                                type="text"
+                                placeholder="Calle y número"
+                                name="direccion"
+                                id="direccion"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="telefono">Teléfono:</label></td>
+                            <td>
+                                <input 
+                                type="tel"
+                                placeholder="Sin 0 y sin 15"
+                                name="telefono"
+                                id="telefono"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">E-mail:</label></td>
+                            <td>
+                                <input 
+                                type="email"
+                                placeholder="usuario@servidor"
+                                name="email"
+                                id="email"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="localidad">Localidad: </label></td>
+                            <td>
+                                <input 
+                                type="text"
+                                placeholder="Ciudad o pueblo"
+                                name="localidad"
+                                id="localidad"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="provincia">Provincia: </label></td>
+                            <td>
+                                <input 
+                                type="text"
+                                placeholder="Provincia"
+                                name="provincia"
+                                id="provincia"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="sexo">Sexo: </label></td>
+                            <td>
+                                <input 
+                                type="radio"
+                                name="sexo"
+                                id="sexo"
+                                value="Masculino"
+                                /> Masculino
+
+                                <input 
+                                type="radio"
+                                name="sexo"
+                                id="sexo"
+                                value="Femenino"
+                                /> Femenino
+
+                                <input 
+                                type="radio"
+                                name="sexo"
+                                id="sexo"
+                                value="Sin especificar"
+                                /> Sin especificar
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="fnac">Fecha de nacimiento: </label></td>
+                            <td>
+                                <input 
+                                type="date"
+                                name="fnac"
+                                id="fnac"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="formapago">Forma de pago: </label></td>
+                            <td>
+                                <select name="formapago" id="formapago">
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Transferencia">Transferencia</option>
+                                    <option value="Tarjeta">Tarjeta</option>
+                                    <option value="Depósito">Depósito</option>
+                                    <option value="Rapipago / Pago Fácil">Rapipago / Pago Fácil</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="mensaje">Mensaje: </label></td>
+                            <td>
+                                <textarea 
+                                name="mensaje" 
+                                id="mensaje"
+                                placeholder="Escriba su mensaje aquí"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input 
+                                type="submit"                                
+                                value="Enviar"
+                                />
+                            </td>
+                            <td>
+                                <input 
+                                type="reset"
+                                value="Cancelar"
+                                />
+                            </td>
+                        </tr>
+                    </table>
+                    <p>El * indica que el campo es obligatorio.</p>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>El Dogo - Todos los derechos reservados - 2026</p>
+    </footer>
+</body>
+</html>
