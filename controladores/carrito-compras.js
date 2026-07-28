@@ -1,9 +1,9 @@
 function agregar(boton) {
     const articulo = boton.closest('.servicio');
 
-    const codigo = articulo.querySelector('[name=codigo').textContent;
-    const nombre = articulo.querySelector('[name=nombre').textContent;
-    const precio = articulo.querySelector('[name=precio').textContent;
+    const codigo = articulo.querySelector('[name=codigo]').textContent;
+    const nombre = articulo.querySelector('[name=nombre]').textContent;
+    const precio = articulo.querySelector('[name=precio]').textContent;
 
     const inputCantidadExistente = document.getElementById(`cantidad_${codigo}`);
 
@@ -12,13 +12,13 @@ function agregar(boton) {
         inputCantidadExistente.value = cantidadActual + 1;
 
         calcular();
-
         return;
     }
 
     const tabla = document.getElementById('lista-tabla');
     const nuevaFila = document.createElement('tr');
 
+    // Mantenemos agrupado el precio/importe dentro de un <span class="monto">
     nuevaFila.innerHTML = `
         <td data-label="Código">${codigo}</td>
         <td data-label="Nombre">${nombre}</td>
@@ -30,16 +30,21 @@ function agregar(boton) {
                 value="1"
                 min="0"
                 onchange="calcular()"
-                />
+            />
         </td>
-        <td data-label="Precio">$ <span name="precios" id="precio_${codigo}">${precio}</span>.- </td>
-        <td data-label="Importe">$ <span name="importes" id="importe_${codigo}">${precio}</span>.-</td>
-        <td><button class="boton-eliminar" onclick="eliminar(this)">X</button></td>
+        <td data-label="Precio">
+            <span class="monto">$ <span name="precios" id="precio_${codigo}">${precio}</span>.-</span>
+        </td>
+        <td data-label="Importe">
+            <span class="monto">$ <span name="importes" id="importe_${codigo}">${precio}</span>.-</span>
+        </td>
+        <td data-label="Acciones">
+            <button class="boton-eliminar" onclick="eliminar(this)">X</button>
+        </td>
     `;
 
     tabla.appendChild(nuevaFila);
-
-    calcular()
+    calcular();
 }
 
 function eliminar(boton) {
@@ -47,8 +52,6 @@ function eliminar(boton) {
     fila.remove();
     calcular();
 }
-
-
 
 function calcular() {
     /* Elementos DOM */
@@ -60,7 +63,7 @@ function calcular() {
     let total = 0;
 
     /* Cálculos */
-    for(let i=0; i < cantidades.length; i++) {
+    for(let i = 0; i < cantidades.length; i++) {
         const importe = Number(cantidades[i].value) * Number(precios[i].textContent);
         total += importe;
 
@@ -68,7 +71,5 @@ function calcular() {
         importes[i].textContent = importe;
     }
 
-
     document.querySelector('#total').textContent = total;
-
 }

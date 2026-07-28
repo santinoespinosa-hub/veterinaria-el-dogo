@@ -1,10 +1,12 @@
 :root {
     --blanco: #ffffff;
-    --oscuro: #202020;
-    --gris: #757575;
-    --gris-claro: #cccccc;
-    --primario: #ffc107;
-    --secundario: #0097a7;
+    --oscuro: #1e272e;             /* Gris gráfico oscuro */
+    --gris: #607d8b;               /* Gris azulado */
+    --gris-claro: #eef2f5;         /* Fondo claro y limpio */
+    --primario: #2e7d32;           /* Verde Medicina / Cuidado Animal */
+    --primario-claro: #4caf50;     /* Verde claro */
+    --secundario: #0288d1;         /* Azul Turquesa Clínico */
+    --acento: #ffa000;             /* Naranja/Dorado para botones destacados */
 }
 
 html {
@@ -21,26 +23,27 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--oscuro);
-    background-image: linear-gradient(to top, var(--gris-claro) 0%, var(--blanco) 100%);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: var(--gris-claro);
     margin: 0;
 }
 
 header {
-  background-color: var(--secundario);
+    background-color: var(--primario);
 }
 
 h1 {
-  color: var(--primario);
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 3.8rem;
+    color: var(--blanco);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3.8rem;
+    margin: 0;
+    padding: 1.5rem 0;
+    letter-spacing: 1px;
 }
 
 h2 {
     font-size: 2.8rem;
-    color: var(--secundario);
+    color: var(--primario);
 }
 
 h3 {
@@ -48,7 +51,9 @@ h3 {
     color: var(--secundario);
 }
 
-/* Estilo del menú de navegación */
+/* ===================================================
+   Estilo del menú de navegación
+   =================================================== */
 .menu {
     background-color: var(--oscuro);
     color: var(--blanco);
@@ -57,6 +62,7 @@ h3 {
 .menu-flex {
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -74,24 +80,26 @@ h3 {
 .menu ul li {
     margin: 2px;
     padding: 2px;
-    border: 1px solid var(--gris-claro);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menu ul li a {
     display: block;
     width: 100px;
-    padding: 4px 0;
+    padding: 6px 0;
     text-decoration: none;
     color: var(--blanco);
     text-align: center;
-    font-size: 11px;
-    border-left: 10px solid var(--gris-claro);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-left: 5px solid var(--secundario);
+    transition: all 0.3s ease;
 }
 
 .menu ul li a:hover {
-    color: var(--primario);
-    background-color: var(--secundario);
-    border-left-color: var(--primario);
+    color: var(--blanco);
+    background-color: var(--primario);
+    border-left-color: var(--acento);
 }
 
 .contenedor {
@@ -99,50 +107,50 @@ h3 {
     margin: 0 auto;
 }
 
-/* --- Sección principal con altura dinámica y flexible --- */
+/* ===================================================
+   Sección principal / Banner
+   =================================================== */
 .principal {
     background-image: url(../imagenes/banner-mascotas.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; /* Asegura que la imagen de fondo quede bien encuadrada */
+    background-position: center;
     position: relative;
     margin-bottom: 2rem;
     width: 100%;
-    display: flex;             /* Le pasamos el control de la altura al contenedor interno */
+    display: flex;
 }
 
 .contenido-principal {
-    background-color: rgba(7, 7, 7, 0.699);
+    background-color: rgba(15, 32, 39, 0.78);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--blanco);
-    padding: 6rem 2rem;       /* SOLUCIÓN: Da un espacio limpio y amplio arriba y abajo */
+    padding: 6rem 2rem;
 }
 
-/* Centrado estético del icono y texto del Banner */
 .principal-icono {
     display: flex;
-    flex-direction: column;    /* Coloca el icono arriba y el texto abajo */
-    align-items: center;       /* Centra el icono y el bloque de texto horizontalmente */
-    text-align: center;        /* Centra todas las líneas de texto */
-    gap: 2rem;                 /* Espacio limpio entre icono y título */
-    max-width: 80rem;          /* Ancho cómodo de lectura */
-    margin: 0 auto;            /* Centra el bloque completo */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    max-width: 80rem;
+    margin: 0 auto;
 }
 
-/* Controla el tamaño del icono para que no se deforme */
 .principal-icono img {
-    width: 80px;               /* Tamaño del camioncito */
+    width: 80px;
     height: 80px;
     display: block;
 }
 
 .banner-texto h3 {
-    color: var(--primario);    /* Color amarillo/dorado destacado para el título */
-    font-size: 2.2rem;
+    color: #81c784;
+    font-size: 2.4rem;
     margin-bottom: 1.5rem;
 }
 
@@ -153,11 +161,11 @@ h3 {
 }
 
 .boton {
-    background-color: var(--secundario);
-    color: var(--blanco);
-    padding: 1rem 3rem;
+    background-color: var(--acento);
+    color: var(--oscuro);
+    padding: 1.2rem 3rem;
     margin-top: 3rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
@@ -165,6 +173,12 @@ h3 {
     width: 90%;
     text-align: center;
     border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #ffb300;
 }
 
 @media (min-width: 768px) {
@@ -174,115 +188,134 @@ h3 {
 }
 
 .sombra {
-    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.45);
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.08);
     background-color: var(--blanco);
     padding: 2rem;
     border-radius: 1rem;
 }
 
-/* Servicios */
+/* ===================================================
+   Servicios / Tarjetas Informativas
+   =================================================== */
 @media(min-width: 768px) {
     .servicios {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 1rem;
+        column-gap: 2rem;
+        align-items: stretch;
     }
 }
 
-/* --- Diseño Estético y Centrado para las Tarjetas --- */
 .servicio {
     display: flex;
-    flex-direction: column;    /* Ordena los bloques principales hacia abajo */
-    align-items: center;       /* Centra horizontalmente el icono y el bloque de texto */
-    text-align: center;        /* Centra los textos decorativos y títulos */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 3rem 2rem;
     background-color: var(--blanco);
     border-radius: 1rem;
-    height: 100%;              /* Asegura que la tarjeta use todo el alto disponible */
+    height: 100%;
+    border-top: 4px solid var(--primario);
 }
 
 .servicio-icono {
-    margin-bottom: 2rem;       /* Deja un espacio limpio debajo del círculo amarillo */
+    width: 12rem;
+    height: 12rem;
+    background-color: #e8f5e9;
+    border: 2px solid var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.servicio-icono img {
+    width: 60%;
 }
 
 .servicio-contenido {
     display: flex;
-    flex-direction: column;    /* Ordena Título -> Texto -> Botón hacia abajo */
-    align-items: center;       /* Centra el título y el botón horizontalmente */
-    flex-grow: 1;              /* ESTO ES CLAVE: Hace que el contenedor ocupe todo el alto */
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
     width: 100%;
 }
 
 .servicio-contenido h3 {
+    color: var(--primario);
     margin-top: 0;
-    margin-bottom: 1.5rem;     /* Separa el título azul del texto inferior */
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
 }
 
 .servicio-contenido p, 
 .servicio-contenido dl {
     font-size: 1.4rem;
     line-height: 1.6;
-    margin-bottom: 2.5rem;     
+    margin-bottom: 2.5rem;
     width: 100%;
 }
 
-/* --- SOLUCIÓN PARA LA LISTA DE "DÓNDE ESTAMOS" --- */
 .servicio-contenido ul {
     font-size: 1.4rem;
     line-height: 1.6;
     margin-bottom: 2.5rem;
     padding: 0;
-    list-style-type: disc;        /* Muestra los puntitos tradicionales */
-    text-align: left;             /* Alinea el texto a la izquierda para que queden uno debajo de otro */
-    display: inline-block;        /* Permite que el bloque se comporte como un elemento centrado */
-    width: auto;                  /* No ocupa todo el ancho, se ajusta al texto */
+    list-style-type: disc;
+    text-align: left;
+    display: inline-block;
+    width: auto;
     max-width: 90%;
 }
 
-/* Estilo estético para la lista de "Nuestros valores" */
 .servicio-contenido dt {
     font-weight: bold;
+    color: var(--secundario);
     margin-top: 1rem;
 }
+
 .servicio-contenido dd {
     margin: 0 0 1rem 0;
 }
 
-/* --- SOLUCIÓN PARA SIMETRÍA DE BOTONES --- */
 .servicio-contenido .boton {
-    margin-top: auto;          /* EFECTO IMÁN: Empuja el botón al fondo de la tarjeta al mismo nivel */
+    margin-top: auto;
     padding: 1rem 3rem;
     font-size: 1.5rem;
-    width: auto;               
+    width: auto;
     display: inline-block;
+    background-color: var(--secundario);
+    color: var(--blanco);
 }
 
+.servicio-contenido .boton:hover {
+    background-color: #0277bd;
+}
+
+/* Catálogo de Productos en rejilla */
 @media (min-width: 768px) {
-    .servicios {
+    #lista-productos.servicios {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 2rem;       /* Separa un poco más las tarjetas de forma limpia */
-        align-items: stretch;   /* Fuerza a todas las tarjetas del contenedor a medir lo mismo */
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto 4rem auto;
+        width: 100%;
     }
 }
-.servicio-icono {
-    width: 15rem;
-    height: 15rem;
-    background-color: var(--primario);
-    border-radius: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
-.servicio-icono img {
-    width: 75%;
-}
-
-/* Carrito de compras */
+/* ===================================================
+   TABLAS Y CARRITO (Escritorio por Defecto)
+   =================================================== */
 .carrito {
-    background-color: var(--oscuro);
-    color: var(--blanco);
+    background-color: var(--blanco);
+    color: var(--oscuro);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    margin-top: 2rem;
+    border: 2px solid var(--primario);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .carrito table {
@@ -290,76 +323,164 @@ h3 {
     border-collapse: collapse;
 }
 
-.carrito th, .carrito td {
-    padding: 12px;
-    border: 1px solid var(--gris);
+.carrito th, 
+.carrito td {
+    padding: 1.2rem;
+    border: 1px solid #e0e0e0;
     text-align: left;
+    font-size: 1.4rem;
 }
 
 .carrito table thead {
     background-color: var(--primario);
-    color: var(--oscuro);
-    font-size: 1.2rem;
+    color: var(--blanco);
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
-.carrito table input {
-    width: 50%;
+.carrito .monto {
+    display: inline-block;
+    white-space: nowrap;
 }
 
-/*-- MODO MOVIL --*/
-@media screen and (max-width: 600px) {
-    .carrito table, thead, tbody, tfoot, th, td, tr {
+/* Alineación de las Acciones en PC */
+.carrito table td[data-label="Acciones"] {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.carrito table td[data-label="Acciones"] button {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    border: none;
+}
+
+/* ===================================================
+   MODO MÓVIL / RESPONSIVE (Menos de 768px)
+   =================================================== */
+@media screen and (max-width: 768px) {
+    .carrito {
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .carrito table, 
+    .carrito thead, 
+    .carrito tbody, 
+    .carrito tfoot, 
+    .carrito th, 
+    .carrito td, 
+    .carrito tr {
         display: block;
     }
 
-    .carrito thead tr {
+    .carrito table thead {
         display: none;
     }
 
-    .carrito tr {
-        margin-bottom: 20px;
-        border: 2px solid var(--secundario);
-        border-radius: 8px;
-        padding: 10px;
+    /* Tarjeta contenedora de cada producto */
+    .carrito tbody tr {
+        margin-bottom: 2rem;
+        border: 2px solid var(--primario);
+        border-radius: 10px;
+        background-color: var(--blanco);
+        padding: 0.5rem 0;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    .carrito td {
+    /* Celdas del producto con líneas divisores bien visibles */
+    .carrito tbody td {
         border: none;
-        position: relative;
-        padding-left: 50% !important;
+        border-bottom: 2px solid #dcdfe3; /* Línea divisoria bien visible */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 1.5rem !important;
         text-align: right;
-        border-bottom: 1px solid var(--gris-claro);
+        background-color: transparent;
+        font-size: 1.4rem;
     }
 
-    .carrito td::before {
-        content: attr(data-label);
-        position:absolute;
-        left: 10px;
-        width: 40%;
+    /* Fondo alternado suave para distinguir mejor las líneas */
+    .carrito tbody tr td:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    /* Quitar el borde inferior a la última fila (Acciones) */
+    .carrito tbody td:last-child {
+        border-bottom: none;
+    }
+
+    /* Etiquetas laterales en verde */
+    .carrito tbody td[data-label]::before {
+        content: attr(data-label) ":";
         font-weight: bold;
+        color: var(--primario);
         text-align: left;
-        color: var(--gris-claro);
+        margin-right: 1rem;
     }
 
+    /* Alineación de la celda del botón Eliminar X */
+    .carrito tbody td[data-label="Acciones"] {
+        justify-content: flex-end;
+    }
+
+    /* Ocultar etiquetas vacías si no hay data-label */
+    .carrito tbody td:not([data-label])::before,
+    .carrito tbody td[data-label=""]::before {
+        content: "" !important;
+        display: none !important;
+    }
+
+    /* --- BLOQUE DE TOTAL (tfoot) EN MÓVIL --- */
     .carrito tfoot tr {
-        border: none;
-        background: var(--gris);
-        color: var(--oscuro);
-        font-weight: bold;
-        font-size: 1.2rem;
+        border: 2px solid var(--secundario);
+        border-radius: 10px;
+        background-color: var(--secundario);
+        color: var(--blanco);
+        margin-top: 1.5rem;
+        padding: 1.2rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .carrito tfoot td:first-child {
+    .carrito tfoot td {
+        border: none !important;
+        padding: 0 !important;
+        font-size: 1.8rem;
+        font-weight: bold;
+        background: transparent;
+    }
+
+    .carrito tfoot td::before {
+        content: "" !important;
+        display: none !important;
+    }
+
+    .carrito tfoot td:empty {
         display: none;
     }
 }
 
 footer {
     text-align: center;
+    padding: 2.5rem 0;
+    font-size: 1.4rem;
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    margin-top: 4rem;
 }
 
-/* --- ADMIN & DIALOG STYLES --- */
+/* ===================================================
+   ADMINISTRACIÓN Y VENTANAS DIÁLOGO / MODAL
+   =================================================== */
 .titulo-admin-flex {
     display: flex;
     justify-content: space-between;
@@ -367,8 +488,9 @@ footer {
     gap: 1rem;
     margin-bottom: 1rem;
 }
+
 .boton-admin {
-    background-color: var(--secundario);
+    background-color: var(--primario);
     color: var(--blanco);
     border: none;
     padding: 1rem 2rem;
@@ -378,22 +500,24 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .boton-admin:hover {
-    background-color: #00c3ff;
+    background-color: var(--primario-claro);
 }
 
-/* Admin controls in product card */
 .admin-opciones {
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    margin-top: 1rem;
-    gap: 1rem;
+    width: 100%;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
-.boton-card-editar, .boton-card-eliminar {
+
+.boton-card-editar, 
+.boton-card-eliminar {
     flex: 1;
     border: none;
-    padding: 0.8rem 1rem;
+    padding: 1rem;
     font-size: 1.4rem;
     font-weight: bold;
     border-radius: 0.4rem;
@@ -401,94 +525,86 @@ footer {
     text-align: center;
     transition: opacity 0.2s ease;
 }
+
 .boton-card-editar {
-    background-color: var(--primario);
-    color: var(--oscuro);
-}
-.boton-card-eliminar {
-    background-color: #f44336;
+    background-color: var(--secundario);
     color: var(--blanco);
 }
-.boton-card-editar:hover, .boton-card-eliminar:hover {
+
+.boton-card-eliminar {
+    background-color: #e53935;
+    color: var(--blanco);
+}
+
+.boton-card-editar:hover, 
+.boton-card-eliminar:hover {
     opacity: 0.9;
 }
 
-/* Dialog Styles */
+/* Diálogos emergentes */
 dialog {
     border: none;
     border-radius: 1.2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     padding: 0;
     width: min(500px, 95vw);
     background: var(--blanco);
 }
+
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
 }
+
 .formulario-modal {
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .formulario-modal h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
     font-size: 2.4rem;
-    border-bottom: 2px solid var(--secundario);
+    border-bottom: 2px solid var(--primario);
     padding-bottom: 1rem;
-    color: var(--secundario);
+    color: var(--primario);
 }
+
 .campo-modal {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
+
 .campo-modal label {
     font-size: 1.4rem;
     font-weight: bold;
     color: var(--oscuro);
     text-align: left;
 }
+
 .campo-modal input {
     padding: 1rem;
-    border: 1px solid var(--gris);
+    border: 1px solid #ccc;
     border-radius: 0.5rem;
     font-size: 1.5rem;
 }
+
 .campo-modal input:focus {
     outline: none;
-    border-color: var(--secundario);
-    box-shadow: 0 0 5px rgba(0, 151, 167, 0.4);
+    border-color: var(--primario);
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
 }
-.campo-modal input:disabled {
-    background-color: #e9ecef;
-    color: #495057;
-    cursor: not-allowed;
-}
-.especificaciones-grupo {
-    border: 1px solid var(--gris);
-    border-radius: 0.8rem;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
-.especificaciones-grupo legend {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--secundario);
-    padding: 0 0.5rem;
-    text-transform: uppercase;
-}
+
 .form-botones {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
     margin-top: 1.5rem;
 }
+
 .boton-dialogo {
     padding: 1rem 2rem;
     font-size: 1.6rem;
@@ -498,43 +614,43 @@ dialog::backdrop {
     cursor: pointer;
     transition: opacity 0.2s;
 }
+
 .boton-dialogo:hover {
     opacity: 0.9;
 }
+
 .boton-dialogo.guardar {
-    background-color: var(--secundario);
+    background-color: var(--primario);
     color: var(--blanco);
 }
+
 .boton-dialogo.cancelar {
     background-color: var(--gris);
     color: var(--blanco);
 }
-@media (min-width: 768px) {
-    .servicios {
-        align-items: stretch; /* Fuerza a todas las tarjetas a tener la misma altura */
-    }
-}
-@media (min-width: 768px) {
-    #lista-productos.servicios {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Divide en 3 columnas iguales */
-        gap: 3rem;                             /* Deja una separación limpia entre tarjetas */
-        max-width: 1200px;                     /* Limita el ancho total del catálogo */
-        margin: 0 auto 4rem auto;              /* Centra todo el bloque en la pantalla */
-        width: 100%;
-    }
-}
-.admin-opciones {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;       /* Ocupa todo el ancho de la tarjeta */
-    gap: 1.5rem;       /* Separa el botón amarillo del rojo */
-    margin-top: 1.5rem;
+/* ===================================================
+   BOTÓN ELIMINAR (X) ESTILIZADO
+   =================================================== */
+.boton-eliminar {
+    background-color: #fee2e2;      /* Rojo suave de fondo */
+    color: #dc2626;                 /* Texto rojo intenso */
+    border: 1px solid #fca5a5;      /* Borde rojo fino */
+    border-radius: 50%;             /* Hace que sea perfectamente redondo */
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(220, 38, 38, 0.15);
 }
 
-.boton-card-editar, 
-.boton-card-eliminar {
-    flex: 1;           /* Hace que ambos botones midan exactamente lo mismo */
-    padding: 1rem;
-    font-size: 1.4rem;
+.boton-eliminar:hover {
+    background-color: #dc2626;      /* Se vuelve rojo al pasar el cursor o tocarlo */
+    color: var(--blanco);
+    border-color: #dc2626;
+    transform: scale(1.08);          /* Un pequeño efecto de aumento */
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas - El Dogo</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>El Dogo</h1>
+    </header>
+
+    <nav class="menu">
+        <div class="contenedor">
+            <ul class="menu-flex">
+                <li><a href="./">Inicio</a></li>
+                <li><a href="./productos.html">Productos</a></li>
+                <li><a href="./clientes.html">Clientes</a></li>
+                <li><a href="./mascotas.html">Mascotas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contenedor sombra">
+        <div class="titulo-admin-flex">
+            <h2>Gestión de Mascotas</h2>
+            <button id="btn-nueva-mascota" class="boton-admin">Cargar nueva mascota</button>
+        </div>
+
+        <section class="carrito">
+            <table border="1" style="width: 100%; text-align: left; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Nombre Mascota</th>
+                        <th>Especie / Raza</th>
+                        <th>DNI Dueño</th>
+                        <th>Nombre Dueño</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-mascotas">
+                    <!-- Se carga dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Diálogo Modal Mascotas -->
+    <dialog id="dialogo-mascota">
+        <form id="form-mascota" class="formulario-modal">
+            <input type="hidden" id="mas-index" value="-1">
+           <h3 id="dialogo-titulo-mascota">Cargar Mascota</h3>
+
+            <div class="campo-modal">
+                <label for="mas-nombre">Nombre de la Mascota:</label>
+                <input type="text" id="mas-nombre" required>
+            </div>
+            <div class="campo-modal">
+                <label for="mas-especie">Especie / Raza:</label>
+                <input type="text" id="mas-especie" placeholder="Ej: Perro / Dogo" required>
+            </div>
+            <div class="campo-modal">
+                <label for="mas-dni-dueno">DNI del Dueño:</label>
+                <input type="number" id="mas-dni-dueno" required>
+            </div>
+            <div class="campo-modal">
+                <label for="mas-nombre-dueno">Nombre del Dueño:</label>
+                <input type="text" id="mas-nombre-dueno" required>
+            </div>
+
+            <div class="form-botones">
+                <button type="submit" class="boton-dialogo guardar">Guardar</button>
+                <button type="button" id="btn-cancelar-mascota" class="boton-dialogo cancelar">Cancelar</button>
+            </div>
+        </form>
+    </dialog>
+
+    <footer>
+        <p>El Dogo - Todos los derechos reservados - 2026</p>
+    </footer>
+
+    <script src="./controladores/lista-mascotas.js"></script>
+</body>
+</html>
